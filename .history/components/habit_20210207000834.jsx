@@ -13,8 +13,8 @@ class Habit extends Component {
   };
 
   handleIncrement = () => {
-    const count = this.state.count + 1;
-    this.setState({ count: count < 100 ? count : 99 });
+    const count = this.state.count +1
+    this.setState({ count: count < 100 ? count });
   };
 
   handleDecrement = () => {
