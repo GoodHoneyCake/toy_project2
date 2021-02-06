@@ -6,11 +6,39 @@ import {
   faPlusSquare,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+const STORAGE_KEY = "@save_name";
 class Habit extends Component {
   state = {
     count: 0,
   };
+
+  componentDidMount() {
+    this.retrieveData();
+  }
+
+  retrieveData = async () => {
+    try {
+      const count = await AsyncStorage.getItem(STORAGE_KEY);
+
+      if (count !== null) {
+        this.setState({ count });
+      }
+    } catch (e) {
+      alert("Failed to load count.");
+    }
+  };
+
+  save = async (count) => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, count);
+      this.setState({ count });
+    } catch (e) {
+      alert("Failed to save count.");
+    }
+  };
+
+  onChangeText = (count) => this.setState({ count });
 
   handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
@@ -22,6 +50,7 @@ class Habit extends Component {
   };
 
   render() {
+    const { count } = this.state;
     return (
       <SafeAreaView style={styles.li}>
         <Text style={styles.title}>Reading</Text>

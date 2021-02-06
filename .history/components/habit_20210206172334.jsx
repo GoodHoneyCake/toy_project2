@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faMinusSquare,
@@ -12,15 +18,6 @@ class Habit extends Component {
     count: 0,
   };
 
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  handleDecrement = () => {
-    const count = this.state.count - 1;
-    this.setState({ count: count < 0 ? 0 : count });
-  };
-
   render() {
     return (
       <SafeAreaView style={styles.li}>
@@ -29,7 +26,7 @@ class Habit extends Component {
         <TouchableOpacity style={styles.button} onPress={this.handleIncrement}>
           <FontAwesomeIcon icon={faPlusSquare} color={"#cfd159"} size={32} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={this.handleDecrement}>
+        <TouchableOpacity style={styles.button}>
           <FontAwesomeIcon icon={faMinusSquare} color={"#cfd159"} size={32} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>

@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faMinusSquare,
@@ -24,17 +30,25 @@ class Habit extends Component {
   render() {
     return (
       <SafeAreaView style={styles.li}>
-        <Text style={styles.title}>Reading</Text>
-        <Text style={styles.count}>{this.state.count}</Text>
-        <TouchableOpacity style={styles.button} onPress={this.handleIncrement}>
-          <FontAwesomeIcon icon={faPlusSquare} color={"#cfd159"} size={32} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={this.handleDecrement}>
-          <FontAwesomeIcon icon={faMinusSquare} color={"#cfd159"} size={32} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <FontAwesomeIcon icon={faTrash} color={"#aa3446"} size={32} />
-        </TouchableOpacity>
+        <FlatList>
+          <Text style={styles.title}>Reading</Text>
+          <Text style={styles.count}>{this.state.count}</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this.handleIncrement}
+          >
+            <FontAwesomeIcon icon={faPlusSquare} color={"#cfd159"} size={32} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this.handleDecrement}
+          >
+            <FontAwesomeIcon icon={faMinusSquare} color={"#cfd159"} size={32} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <FontAwesomeIcon icon={faTrash} color={"#aa3446"} size={32} />
+          </TouchableOpacity>
+        </FlatList>
       </SafeAreaView>
     );
   }

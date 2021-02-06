@@ -6,11 +6,16 @@ import {
   faPlusSquare,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+const STORAGE_KEY = "@save_name";
 class Habit extends Component {
   state = {
     count: 0,
   };
+
+  componentDidMount() {
+    this.retrieveData();
+  }
 
   handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });

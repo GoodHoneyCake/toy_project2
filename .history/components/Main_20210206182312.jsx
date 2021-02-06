@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { Component } from "react";
-import Habits from "./habits";
+import Habit from "./habit";
 
 class Main extends Component {
   render() {

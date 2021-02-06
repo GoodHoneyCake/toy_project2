@@ -23,7 +23,7 @@ class Habit extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.li}>
+      <React.Fragment style={styles.li}>
         <Text style={styles.title}>Reading</Text>
         <Text style={styles.count}>{this.state.count}</Text>
         <TouchableOpacity style={styles.button} onPress={this.handleIncrement}>
@@ -35,7 +35,7 @@ class Habit extends Component {
         <TouchableOpacity style={styles.button}>
           <FontAwesomeIcon icon={faTrash} color={"#aa3446"} size={32} />
         </TouchableOpacity>
-      </SafeAreaView>
+      </React.Fragment>
     );
   }
 }
