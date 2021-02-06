@@ -1,0 +1,117 @@
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Component } from "react";
+
+const STORAGE_KEY = "@save_name";
+
+class App extends Component {
+  state = {
+    text: "",
+    name: "",
+  };
+
+  componentDidMount() {
+    this.retrieveData();
+  }
+
+  retrieveData = async () => {
+    try {
+      const name = await AsyncStorage.getItem(STORAGE_KEY);
+
+      if (name !== null) {
+        this.setState({ name });
+      }
+    } catch (e) {
+      alert("Failed to load name.");
+    }
+  };
+
+  save = async (name) => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, name);
+      this.setState({ name });
+    } catch (e) {
+      alert("Failed to save name.");
+    }
+  };
+
+  removeEverything = async () => {
+    try {
+      await AsyncStorage.clear();
+      alert("데이터 초기화 ♥️");
+    } catch (e) {
+      alert("메모는 새로 작성하면 덮어 쓰여요 ♥️");
+    }
+  };
+
+  onChangeText = (text) => this.setState({ text });
+
+  onSubmitEditing = () => {
+    const onSave = this.save;
+    const { text } = this.state;
+
+    if (!text) return;
+
+    onSave(text);
+    this.setState({ text: "" });
+  };
+
+  render() {
+    const { text, name } = this.state;
+    return (
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          value={text}
+          placeholder="오늘의 한 줄"
+          onChangeText={this.onChangeText}
+          onSubmitEditing={this.onSubmitEditing}
+        />
+        <Text style={styles.text}>{name}</Text>
+        <TouchableOpacity onPress={this.removeEverything} style={styles.button}>
+          <Text style={styles.buttonText}>초기화</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: 20,
+    padding: 10,
+    backgroundColor: "#fff",
+  },
+  input: {
+    padding: 15,
+    height: 50,
+    borderBottomWidth: 1,
+    borderBottomColor: "#333",
+    margin: 10,
+  },
+  button: {
+    margin: 10,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: "#fc5f5f",
+  },
+  buttonText: {
+    fontSize: 14,
+    color: "#fff",
+  },
+});
+
+export default App;
