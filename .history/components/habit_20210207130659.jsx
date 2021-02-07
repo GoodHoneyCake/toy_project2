@@ -46,7 +46,7 @@ class Habit extends Component {
   }
 }
 const styles = StyleSheet.create({
-  habit: { flex: 1, flexDirection: "row" },
+  habit: { flex: 1, flexDirection: "row", backgroundColor: "green" },
   title: {
     fontSize: 24,
     margin: 10,

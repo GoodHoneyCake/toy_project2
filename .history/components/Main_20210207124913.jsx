@@ -48,17 +48,15 @@ class Main extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Navbar
-          totalCount={this.state.habits.filter((item) => item.count > 0).length}
-        />
+      <SafeAreaView>
+        <Navbar />
         <Habits
           habits={this.state.habits}
           onIncrement={this.handleIncrement}
           onDecrement={this.handleDecrement}
           onDelete={this.handleDelete}
         />
-      </React.Fragment>
+      </SafeAreaView>
     );
   }
 }

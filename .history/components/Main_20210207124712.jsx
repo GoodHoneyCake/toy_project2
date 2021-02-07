@@ -1,6 +1,5 @@
 // import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { Component } from "react";
-import { SafeAreaView } from "react-native";
 import Habits from "./habits";
 import Navbar from "./navbar";
 
@@ -49,9 +48,7 @@ class Main extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar
-          totalCount={this.state.habits.filter((item) => item.count > 0).length}
-        />
+        <Navbar />
         <Habits
           habits={this.state.habits}
           onIncrement={this.handleIncrement}
