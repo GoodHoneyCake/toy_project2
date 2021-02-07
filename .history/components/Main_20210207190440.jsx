@@ -19,7 +19,7 @@ class Main extends Component {
       {
         id: 3,
         name: "요리",
-        count: 0,
+        count: 100,
       },
     ],
   };

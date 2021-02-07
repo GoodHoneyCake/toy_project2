@@ -30,7 +30,7 @@ class HabitAddForm extends Component {
       <SafeAreaView style={styles.form}>
         <TextInput
           style={styles.title}
-          placeholder="오늘의 기록"
+          placeholder="오늘의 취미"
           onSubmitEditing={this.onSubmitEditing}
           onChangeText={this.onChangeText}
           defaultValue={this.state.data}

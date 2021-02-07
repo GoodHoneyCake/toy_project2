@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faClock, faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
 import { StyleSheet, SafeAreaView, Text, TouchableOpacity } from "react-native";
 
@@ -9,7 +9,7 @@ class Navbar extends Component {
       <React.Fragment>
         <SafeAreaView style={styles.navbar}>
           <TouchableOpacity style={styles.icon}>
-            <FontAwesomeIcon icon={faClock} color={"white"} size={32} />
+            <FontAwesomeIcon icon={faLeaf} color={"green"} size={32} />
           </TouchableOpacity>
           <Text style={styles.title}>오늘의 기록</Text>
           <Text style={styles.count}>{this.props.totalCount}</Text>
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
   icon: { marginTop: 30, marginLeft: 10 },
   title: {
     fontSize: 24,
-    color: "white",
     fontWeight: "bold",
     marginTop: 30,
   },
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderRadius: 5,
     color: "#fff",
+    backgroundColor: "#7bf781",
   },
 });
 export default Navbar;

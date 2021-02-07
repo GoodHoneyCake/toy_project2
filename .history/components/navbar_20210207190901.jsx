@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
   icon: { marginTop: 30, marginLeft: 10 },
   title: {
     fontSize: 24,
-    color: "white",
     fontWeight: "bold",
     marginTop: 30,
   },
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderRadius: 5,
     color: "#fff",
+    backgroundColor: "#7bf781",
   },
 });
 export default Navbar;

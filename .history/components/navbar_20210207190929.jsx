@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
   icon: { marginTop: 30, marginLeft: 10 },
   title: {
     fontSize: 24,
-    color: "white",
     fontWeight: "bold",
     marginTop: 30,
   },
