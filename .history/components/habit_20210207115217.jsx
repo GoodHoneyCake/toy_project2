@@ -15,15 +15,15 @@ import {
 
 class Habit extends Component {
   handleIncrement = () => {
-    this.props.onIncrement(this.props.habit);
+    console.log(this.props.onIncrement);
   };
 
-  handleDecrement = () => {
-    this.props.onDecrement(this.props.habit);
+  handleDecrement = (e) => {
+    console.log(e);
   };
 
-  handleDelete = () => {
-    this.props.onDelete(this.props.habit);
+  handleDelete = (e) => {
+    console.log(e);
   };
 
   render() {

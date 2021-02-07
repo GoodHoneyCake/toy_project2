@@ -14,17 +14,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class Habit extends Component {
-  handleIncrement = () => {
-    this.props.onIncrement(this.props.habit);
-  };
+  handleIncrement = () => {};
 
-  handleDecrement = () => {
-    this.props.onDecrement(this.props.habit);
-  };
+  handleDecrement = () => {};
 
-  handleDelete = () => {
-    this.props.onDelete(this.props.habit);
-  };
+  handelDelete = () => {};
 
   render() {
     const { name, count } = this.props.habit;

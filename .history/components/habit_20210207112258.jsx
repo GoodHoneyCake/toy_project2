@@ -14,16 +14,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class Habit extends Component {
+  state = {
+    count: 0,
+  };
+
   handleIncrement = () => {
-    this.props.onIncrement(this.props.habit);
+    const count = this.state.count + 1;
+    this.setState({ count: count < 100 ? count : 99 });
   };
 
   handleDecrement = () => {
-    this.props.onDecrement(this.props.habit);
-  };
-
-  handleDelete = () => {
-    this.props.onDelete(this.props.habit);
+    const count = this.state.count - 1;
+    this.setState({ count: count < 0 ? 0 : count });
   };
 
   render() {
@@ -45,7 +47,7 @@ class Habit extends Component {
           >
             <FontAwesomeIcon icon={faMinusSquare} color={"#cfd159"} size={32} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.handleDelete}>
+          <TouchableOpacity style={styles.button}>
             <FontAwesomeIcon icon={faTrash} color={"#aa3446"} size={32} />
           </TouchableOpacity>
         </View>
@@ -55,17 +57,16 @@ class Habit extends Component {
 }
 const styles = StyleSheet.create({
   ul: {},
-
   li: {
     flex: 1,
     flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "green",
   },
   title: {
     fontSize: 24,
     margin: 10,
-    flex: 1,
-    justifyContent: "flex-start",
   },
   count: {
     fontSize: 24,

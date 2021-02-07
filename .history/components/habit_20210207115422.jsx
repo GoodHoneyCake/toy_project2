@@ -15,16 +15,12 @@ import {
 
 class Habit extends Component {
   handleIncrement = () => {
-    this.props.onIncrement(this.props.habit);
+    console.log(this.props.onIncrement(this.props.habit.count));
   };
 
-  handleDecrement = () => {
-    this.props.onDecrement(this.props.habit);
-  };
+  handleDecrement = () => {};
 
-  handleDelete = () => {
-    this.props.onDelete(this.props.habit);
-  };
+  handleDelete = () => {};
 
   render() {
     const { name, count } = this.props.habit;

@@ -30,7 +30,7 @@ class Habit extends Component {
     const { name, count } = this.props.habit;
     return (
       <SafeAreaView style={styles.ul}>
-        <View style={styles.li}>
+        <ScrollView style={styles.li}>
           <Text style={styles.title}>{name}</Text>
           <Text style={styles.count}>{count}</Text>
           <TouchableOpacity
@@ -48,7 +48,7 @@ class Habit extends Component {
           <TouchableOpacity style={styles.button} onPress={this.handleDelete}>
             <FontAwesomeIcon icon={faTrash} color={"#aa3446"} size={32} />
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </SafeAreaView>
     );
   }

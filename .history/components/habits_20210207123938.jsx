@@ -18,7 +18,7 @@ class Habits extends Component {
   render() {
     return (
       <ScrollView>
-        {this.props.habits.map((habit) => (
+        {this.state.habits.map((habit) => (
           <Habit
             key={habit.id}
             habit={habit}

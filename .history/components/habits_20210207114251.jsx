@@ -3,28 +3,46 @@ import { ScrollView } from "react-native";
 import Habit from "./habit";
 
 class Habits extends Component {
+  state = {
+    habits: [
+      {
+        id: 1,
+        name: "Reading",
+        count: 0,
+      },
+      {
+        id: 2,
+        name: "Coding",
+        count: 0,
+      },
+      {
+        id: 3,
+        name: "Cooking",
+        count: 0,
+      },
+    ],
+  };
+
   handleIncrement = (habit) => {
-    this.props.onIncrement(habit);
+    console.log(habit);
   };
 
   handleDecrement = (habit) => {
-    this.props.onDecrement(habit);
+    console.log(habit);
   };
 
   handleDelete = (habit) => {
-    this.props.onDelete(habit);
+    console.log(habit);
   };
 
   render() {
     return (
       <ScrollView>
-        {this.props.habits.map((habit) => (
+        {this.state.habits.map((habit) => (
           <Habit
             key={habit.id}
             habit={habit}
-            onIncrement={this.handleIncrement}
-            onDecrement={this.handleDecrement}
-            onDelete={this.handleDelete}
+            handleIncrement={handleIncrement}
           />
         ))}
       </ScrollView>
