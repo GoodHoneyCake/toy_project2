@@ -38,6 +38,7 @@ class Habits extends Component {
             />
           ))}
         </ScrollView>
+        <Button onPress={this.props.onReset} title="초기화" color="#841584" />
       </SafeAreaView>
     );
   }

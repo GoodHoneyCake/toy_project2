@@ -4,10 +4,13 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Text,
 } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faEraser, faPen } from "@fortawesome/free-solid-svg-icons";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 
+// const STORAGE_KEY = "@save_name";
 class HabitAddForm extends Component {
   state = {
     data: "",
@@ -16,6 +19,7 @@ class HabitAddForm extends Component {
   onSubmitEditing = () => {
     const { data } = this.state;
     data && this.props.onAdd(this.state.data);
+
     this.setState({ data: "" });
   };
 
@@ -29,6 +33,7 @@ class HabitAddForm extends Component {
       <SafeAreaView style={styles.form}>
         <TextInput
           style={styles.title}
+          value={data}
           placeholder="오늘의 기록"
           onSubmitEditing={this.onSubmitEditing}
           onChangeText={this.onChangeText}

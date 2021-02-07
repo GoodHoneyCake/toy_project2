@@ -6,7 +6,8 @@ import {
   StyleSheet,
 } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faEraser, faPen } from "@fortawesome/free-solid-svg-icons";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 
 class HabitAddForm extends Component {
   state = {

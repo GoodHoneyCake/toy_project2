@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, Button } from "react-native";
+import { ScrollView, Button, View } from "react-native";
 import Habits from "./habits";
 import Navbar from "./navbar";
 import HabitAddForm from "./habitAddForm";
@@ -57,7 +57,7 @@ class Main extends Component {
     const onSave = this.save;
     onSave(habits);
     this.setState({ habits });
-    alert("카운트 초기화 ♥️");
+    alert("기록 초기화 완료 ♥️");
   };
 
   componentDidMount() {
@@ -86,14 +86,14 @@ class Main extends Component {
     }
   };
 
-  // removeEverything = async () => {
-  //   try {
-  //     await AsyncStorage.clear();
-  //     alert("모든 데이터 초기화 완료 재접속 하세요 ♥️");
-  //   } catch (e) {
-  //     alert("오류 ♥️");
-  //   }
-  // };
+  removeEverything = async () => {
+    try {
+      await AsyncStorage.clear();
+      alert("모든 데이터 초기화 완료 재접속 하세요 ♥️");
+    } catch (e) {
+      alert("오류 ♥️");
+    }
+  };
 
   render() {
     return (
@@ -112,11 +112,18 @@ class Main extends Component {
             onReset={this.handleReset}
           />
         </ScrollView>
-        <Button
-          onPress={this.handleReset}
-          title="카운트 초기화"
-          color="#841584"
-        />
+        <View>
+          <Button
+            onPress={this.handleReset}
+            title="기록 초기화"
+            color="#841584"
+          />
+          <Button
+            onPress={this.removeEverything}
+            title="초기 상태로 복구"
+            color="#841554"
+          />
+        </View>
       </React.Fragment>
     );
   }

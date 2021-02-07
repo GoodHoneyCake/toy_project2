@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import { SafeAreaView, ScrollView, Button } from "react-native";
 import Habit from "./habit";
 
 class Habits extends Component {
@@ -38,6 +38,7 @@ class Habits extends Component {
             />
           ))}
         </ScrollView>
+        <Button onPress={this.props.onReset} title="초기화" color="#841584" />
       </SafeAreaView>
     );
   }

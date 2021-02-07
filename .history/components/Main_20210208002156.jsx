@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, Button } from "react-native";
+import { ScrollView, Button, View, StyleSheet } from "react-native";
 import Habits from "./habits";
 import Navbar from "./navbar";
 import HabitAddForm from "./habitAddForm";

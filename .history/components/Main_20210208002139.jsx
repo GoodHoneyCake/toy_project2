@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, Button } from "react-native";
+import { ScrollView, Button, View, StyleSheet } from "react-native";
 import Habits from "./habits";
 import Navbar from "./navbar";
 import HabitAddForm from "./habitAddForm";
@@ -112,14 +112,24 @@ class Main extends Component {
             onReset={this.handleReset}
           />
         </ScrollView>
-        <Button
-          onPress={this.handleReset}
-          title="카운트 초기화"
-          color="#841584"
-        />
+        <View>
+          <Button
+            onPress={this.handleReset}
+            title="카운트 초기화"
+            color="#841584"
+          />
+        </View>
       </React.Fragment>
     );
   }
 }
+
+// const styles = StyleSheet.create({
+//   btns: {
+//     flexDirection: "row",
+//     justifyContent: "space-between",
+//     padding: 10,
+//   },
+// });
 
 export default Main;

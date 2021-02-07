@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import Habit from "./habit";
 
 class Habits extends Component {
@@ -19,10 +19,6 @@ class Habits extends Component {
     this.props.onAdd(name);
   };
 
-  handleReset = (habit) => {
-    this.props.onReset(habit);
-  };
-
   render() {
     return (
       <SafeAreaView>
@@ -34,7 +30,7 @@ class Habits extends Component {
               onIncrement={this.handleIncrement}
               onDecrement={this.handleDecrement}
               onDelete={this.handleDelete}
-              onReset={this.handleReset}
+              onReset={this.hadleReset}
             />
           ))}
         </ScrollView>

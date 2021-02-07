@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faLeaf } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
 import { StyleSheet, SafeAreaView, Text, TouchableOpacity } from "react-native";
 

@@ -57,8 +57,9 @@ class Main extends Component {
     const onSave = this.save;
     onSave(habits);
     this.setState({ habits });
-    alert("카운트 초기화 ♥️");
   };
+
+  ///////////////////////////////
 
   componentDidMount() {
     this.retrieveData();
@@ -70,9 +71,9 @@ class Main extends Component {
       jsonValue != null
         ? this.setState({ habits: JSON.parse(jsonValue) })
         : null;
-      // console.log(`get ${jsonValue}`);
+      console.log(`get ${jsonValue}`);
     } catch (e) {
-      alert("저장된 데이터가 없어요 ♥️");
+      alert("저장된 데이터가 없어요");
     }
   };
 
@@ -80,18 +81,18 @@ class Main extends Component {
     try {
       const jsonValue = JSON.stringify(name);
       await AsyncStorage.setItem(STORAGE_KEY, jsonValue);
-      // console.log(`save ${jsonValue}`);
+      console.log(`save ${jsonValue}`);
     } catch (e) {
-      alert("저장에 실패 했어요 ♥️");
+      alert("저장에 실패 했어요");
     }
   };
 
   // removeEverything = async () => {
   //   try {
   //     await AsyncStorage.clear();
-  //     alert("모든 데이터 초기화 완료 재접속 하세요 ♥️");
+  //     alert("데이터 초기화");
   //   } catch (e) {
-  //     alert("오류 ♥️");
+  //     alert("오류");
   //   }
   // };
 
@@ -114,7 +115,7 @@ class Main extends Component {
         </ScrollView>
         <Button
           onPress={this.handleReset}
-          title="카운트 초기화"
+          title="기록 초기화"
           color="#841584"
         />
       </React.Fragment>

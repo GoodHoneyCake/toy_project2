@@ -1,18 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faLeaf } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
 import { StyleSheet, SafeAreaView, Text, TouchableOpacity } from "react-native";
-
+import HabitAddForm from "./habitAddForm";
 class Navbar extends Component {
+  handleAdd = (name) => {
+    this.props.onAdd(name);
+  };
+
   render() {
     return (
-      <SafeAreaView style={styles.navbar}>
-        <TouchableOpacity style={styles.icon}>
-          <FontAwesomeIcon icon={faClock} color={"white"} size={32} />
-        </TouchableOpacity>
-        <Text style={styles.title}>오늘의 기록</Text>
-        <Text style={styles.count}>{this.props.totalCount}</Text>
-      </SafeAreaView>
+      <React.Fragment>
+        <SafeAreaView style={styles.navbar}>
+          <TouchableOpacity style={styles.icon}>
+            <FontAwesomeIcon icon={faClock} color={"white"} size={32} />
+          </TouchableOpacity>
+          <Text style={styles.title}>오늘의 기록</Text>
+          <Text style={styles.count}>{this.props.totalCount}</Text>
+        </SafeAreaView>
+        <HabitAddForm onAdd={this.handleAdd} />
+      </React.Fragment>
     );
   }
 }

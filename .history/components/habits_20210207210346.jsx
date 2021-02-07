@@ -15,14 +15,6 @@ class Habits extends Component {
     this.props.onDelete(habit);
   };
 
-  handleAdd = (name) => {
-    this.props.onAdd(name);
-  };
-
-  handleReset = (habit) => {
-    this.props.onReset(habit);
-  };
-
   render() {
     return (
       <SafeAreaView>
@@ -34,7 +26,6 @@ class Habits extends Component {
               onIncrement={this.handleIncrement}
               onDecrement={this.handleDecrement}
               onDelete={this.handleDelete}
-              onReset={this.handleReset}
             />
           ))}
         </ScrollView>

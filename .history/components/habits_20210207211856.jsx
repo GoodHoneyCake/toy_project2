@@ -19,10 +19,6 @@ class Habits extends Component {
     this.props.onAdd(name);
   };
 
-  handleReset = (habit) => {
-    this.props.onReset(habit);
-  };
-
   render() {
     return (
       <SafeAreaView>
