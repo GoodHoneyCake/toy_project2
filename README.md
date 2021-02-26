@@ -1,2 +1,2 @@
 # toy_project2
-toy_project2 (react-native)
+toy_project2 (react-native) Today Tracker
